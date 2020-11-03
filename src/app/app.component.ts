@@ -12,13 +12,11 @@ export class AppComponent {
   /**
    * testable
    * Testables app component
-   * @param {string} test
-   * @returns {string}
+   * @param test []
+   * @returns test
    */
-  testable(test: string): string{
+  testable(test: string): string {
     return test;
   }
-
-
 
 }

@@ -17,6 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "allowedCommonJsDependencies": ["chart.js", "jszip", "read-excel-file", "xmldom"],
             "outputPath": "dist/AngularBootstrap",
             "index": "src/index.html",
             "main": "src/main.ts",

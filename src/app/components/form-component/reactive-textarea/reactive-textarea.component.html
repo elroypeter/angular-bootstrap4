@@ -1,0 +1,5 @@
+<div class="form-group">
+  <label [for]="fieldId" class="label text-muted"> {{label}} </label>
+  <textarea [formControl]="control" [id]="fieldId" [attr.cols]="cols" [attr.rows]="rows" class="form-control"></textarea>
+  <app-form-validation [validationErrors]="validationErrors"></app-form-validation>
+</div>

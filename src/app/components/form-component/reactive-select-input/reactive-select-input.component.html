@@ -1,0 +1,32 @@
+<!-- select without search -->
+<div *ngIf="!single" class="form-group">
+  <label [for]="fieldId" class="label text-muted"> {{label}} </label>
+  <select [formControl]="control" [id]="fieldId" class="custom-select custom-select-sm">
+    <option></option>
+    <option *ngFor="let opt of iteratableOptions" [ngValue]="opt.ngValue">{{ opt.display }}</option>
+  </select>
+  <app-form-validation [validationErrors]="validationErrors"></app-form-validation>
+</div>
+
+<!-- select with search -->
+
+<!-- multi select -->
+<div *ngIf="single" class="form-group">
+  <label [for]="fieldId" class="label text-muted"> {{label}} </label>
+  <input [formControl]="control" [id]="fieldId" type="text" hidden>
+  <div class="multi-selector">
+    <div class="selected">
+      <span *ngFor="let it of multiSelected" class="bg-primary multi-item">
+        {{ _findDisplayName(it) }}
+        <i (click)="_removeItem(it)" class="fas fa-times ml-2"></i>
+      </span>
+    </div>
+    <select [formControl]="selectionList" class="custom-select custom-select-sm">
+      <option [ngValue]="undefined"></option>
+      <option style="color: green;" *ngFor="let opt of iteratableOptions" [ngValue]="opt.ngValue">{{ opt.display }}
+      </option>
+    </select>
+  </div>
+  <app-form-validation [validationErrors]="validationErrors"></app-form-validation>
+</div>
+<!-- multi select -->

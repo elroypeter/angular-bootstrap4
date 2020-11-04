@@ -1,0 +1,14 @@
+<div class="form-group d-block">
+  <label [for]="fieldId" class="label text-muted"> {{label}} </label>
+  <div class="input-group mb-3">
+    <input [ngStyle]="{'background-color': control.value, 'opacity': 0.9}" [formControl]="control" [id]="fieldId" autocomplete="off" type="text"
+      class="form-control form-control-sm" readonly>
+    <div class="input-group-append">
+      <span id="open-palette" class="input-group-text" (click)="openPalette()"><i class="fas fa-palette"></i></span>
+    </div>
+  </div>
+  <ul id="color-picker" [ngClass]="{'color-picker': true, 'd-none': !isPaletteOpen, 'mx-auto': true, 'mt-2': true}" tabindex="-1">
+    <li *ngFor="let color of availableColors" (click)="pickColor(color)" class="color-item" [ngStyle]="{'background-color': color}"></li>
+  </ul>
+  <app-form-validation [validationErrors]="validationErrors"></app-form-validation>
+</div>

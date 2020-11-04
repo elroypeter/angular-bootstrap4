@@ -1,0 +1,5 @@
+<div class="form-group">
+  <label *ngIf="fieldId" [for]="fieldId" class="label text-muted"> {{label}} </label>
+  <input [attr.placeholder]="placeHolder" [attr.type]="fieldType" [formControl]="control" autocomplete="off" class="form-control form-control-sm"/>
+  <app-form-validation [validationErrors]="validationErrors"></app-form-validation>
+</div>

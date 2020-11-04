@@ -1,0 +1,36 @@
+<div class="filter dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+    <path fill="#2d9cdb" d="M6,13H18V11H6M3,6V8H21V6M10,18H14V16H10V18Z" />
+  </svg>
+  <span [ngClass]="{'d-none': addedFilters.length <= 0}" class="filter-count text-center">{{ addedFilters.length }}</span>
+</div>
+<div (click)="$event.stopPropagation()" class="dropdown-menu filt scrollable scroll" style="border-radius: 10px;">
+  <div class="dropdown-header dropdown-title">
+    Add Filter
+    <span class="float-right" data-toggle="tooltip" data-placement="right" title="Tooltip on right">
+      <i class="far fa-question-circle"></i>
+    </span>
+  </div>
+  <div class="clearfix"></div>
+  <div class="dropdown-body">
+    <!-- added items -->
+    <div class="mx-4 mb-2">
+      <div *ngFor="let item of addedFilters" class="d-inline">
+        <span (click)="removeFromFilter(item)" class="badge badge-primary text-white mx-1 my-1 p-2">
+          <i class="fas fa-times mr-2"></i>
+          {{ item.display }}
+        </span>
+      </div>
+    </div>
+    <!-- search for items -->
+    <div class="mx-4">
+      <input class="form-control form-control-sm mb-2 mr-sm-2" type="text" placeholder="search"
+        [(ngModel)]="searchQuery" />
+    </div>
+    <!-- items to add -->
+    <div class="filterable-list">
+      <a *ngFor="let item of filterableList | filter :filterList :searchQuery : false" class="dropdown-item"
+        (click)="addItemToFilter(item)">{{ item.display }}</a>
+    </div>
+  </div>
+</div>

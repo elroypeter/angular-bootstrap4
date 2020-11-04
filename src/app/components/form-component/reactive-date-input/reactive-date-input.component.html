@@ -1,0 +1,17 @@
+<div *ngIf="singleDate" class="form-group">
+  <label *ngIf="fieldId" [for]="fieldId" class="label text-muted"> {{label}} </label>
+  <input #datepickerYMD="bsDatepicker" bsDatepicker (bsValueChange)="onPickDate($event)"
+    [bsConfig]="{ minDate: minDate, dateInputFormat: 'YYYY-MM-DD', isAnimated: true, containerClass: 'theme-blue' }"
+    [formControl]="control" autocomplete="off"
+    class="form-control form-control-sm" readonly/>
+  <app-form-validation [validationErrors]="validationErrors"></app-form-validation>
+</div>
+
+<div *ngIf="!singleDate" class="form-group">
+  <label *ngIf="fieldId" [for]="fieldId" class="label text-muted"> {{label}} </label>
+  <input #datepickerYMD="bsDaterangepicker" bsDaterangepicker (bsValueChange)="onPickDate($event)"
+    [bsConfig]="{ rangeInputFormat: 'YYYY-MM-DD', dateInputFormat: 'YYYY-MM-DD', isAnimated: true, containerClass: 'theme-blue' }"
+    [formControl]="control" autocomplete="off"
+    class="form-control form-control-sm" readonly/>
+  <app-form-validation [validationErrors]="validationErrors"></app-form-validation>
+</div>

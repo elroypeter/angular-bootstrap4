@@ -1,0 +1,26 @@
+.multi-selector {
+  border: 1px #ced4da solid;
+  border-radius: 10px;
+  width: 100%;
+  height: auto;
+}
+
+.multi-selector .custom-select {
+  color: #49505700 !important;
+  border: none !important;
+}
+
+.multi-selector .selected{
+  padding: 10px;
+}
+
+.multi-item{
+  background: blue;
+  color: white;
+  border-radius: 10px;
+  padding: 2px 6px;
+  margin-right: 2px;
+  margin-bottom: 2px;
+  display: inline-block;
+  text-transform: lowercase;
+}

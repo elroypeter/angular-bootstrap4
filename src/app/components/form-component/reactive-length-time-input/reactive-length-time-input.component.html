@@ -1,0 +1,27 @@
+<div class="form-row" [formGroup]="lengthTimeForm" >
+    <label *ngIf="fieldId" [for]="fieldId" class="label text-muted"> {{label}} </label>
+    <div class="form-row justify-content-between">
+        <div class="col-sm-6 mb-2">
+            <div class="input-group input-group-sm">
+                <input [attr.placeholder]="placeHolder" type="text" formControlName="hours" autocomplete="off" class="form-control form-control-sm" [readonly]="readOnly" />
+                <div class="input-group-append"><span class="input-group-text">Hrs</span></div>
+            </div>
+            <div class="validation-message text-danger" *ngIf="lengthTimeForm.get('hours').hasError('pattern') && (lengthTimeForm.get('hours').dirty || lengthTimeForm.get('hours').touched)">Numbers only</div>
+            <div class="validation-message text-danger" *ngIf="lengthTimeForm.get('hours').hasError('max') && (lengthTimeForm.get('hours').dirty || lengthTimeForm.get('hours').touched)">Invalid length</div>
+            <div class="validation-message text-danger" *ngIf="lengthTimeForm.get('hours').hasError('min') && (lengthTimeForm.get('hours').dirty || lengthTimeForm.get('hours').touched)">Invalid length</div>
+            <app-form-validation [validationErrors]="validationErrors"></app-form-validation>
+        </div>
+        <div class="col-sm-6 mb-2">
+            <div class="input-group input-group-sm">
+                <input [attr.placeholder]="placeHolder" type="text" formControlName="minutes" autocomplete="off" class="form-control form-control-sm" [readonly]="readOnly" />
+                <div class="input-group-append"><span class="input-group-text">Minutes</span></div>
+            </div>
+            <div class="validation-message text-danger" *ngIf="lengthTimeForm.get('minutes').hasError('pattern') && (lengthTimeForm.get('minutes').dirty || lengthTimeForm.get('minutes').touched)">Numbers only</div>
+            <div class="validation-message text-danger" *ngIf="lengthTimeForm.get('minutes').hasError('max') && (lengthTimeForm.get('minutes').dirty || lengthTimeForm.get('minutes').touched)">Invalid length</div>
+            <div class="validation-message text-danger" *ngIf="lengthTimeForm.get('minutes').hasError('min') && (lengthTimeForm.get('minutes').dirty || lengthTimeForm.get('minutes').touched)">Invalid length</div>
+            <app-form-validation [validationErrors]="validationErrors"></app-form-validation>
+        </div>
+    </div>
+    <input [hidden]="true" [formControl]="control" autocomplete="off" class="form-control form-control-sm" readonly="true" />
+    <app-form-validation [validationErrors]="validationErrors"></app-form-validation>
+</div>

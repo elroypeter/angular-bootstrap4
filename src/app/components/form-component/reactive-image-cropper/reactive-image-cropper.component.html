@@ -1,0 +1,13 @@
+<div class="form-group">
+  <label [for]="fieldId" class="label text-muted w-100">
+    <span class="float-left">{{label}}</span>
+    <span class="upload-btn-wrapper float-right">
+      <span class="badge badge-primary"><i class="fas fa-upload mr-2"></i>select file</span>
+      <input (change)="onFileSelect($event)" type="file" name="myfile" />
+    </span>
+  </label>
+  <div class="clearfix"></div>
+  <div id="resizer-demo"></div>
+  <input [formControl]="control" [id]="fieldId" autocomplete="off" class=" d-none form-control form-control-sm" />
+  <app-form-validation [validationErrors]="validationErrors"></app-form-validation>
+</div>
